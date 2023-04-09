@@ -14,14 +14,23 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
+                
+                  <% contacts.forEach((contact, i) => { i++ %>
+                    <tr>
+                    <th scope="row"><%= i %></th>
+                    <td><%= contact.nama %></td>
+                    <td><%= contact.noHp %></td>
+                    <td><%= contact.email %></td>
                     <td>
-                        <a href="/form-contact">detail</a>
-                    </td>
-                  </tr>
+                      <a href=" ./contact/<%= contact.nama %>">edit</a>
+                      </td>
+            
+                    </tr>
+                    <% }) %>
+
+
+
+
                 </tbody>
               </table>
 

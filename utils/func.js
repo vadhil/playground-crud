@@ -17,19 +17,42 @@ if ( !fs.existsSync(dataPath) ) {
 
 
 const siswa = {
-    nama: 'Siswa',
+    nama: 'fakhri',
     noHp: '08123456789',
-    email: 'hzdkv@example.com'
+    email: 'fakhri@example.com'
+}
+const siswa1 = {
+    nama: 'reza',
+    noHp: '08123456789',
+    email: 'reza@example.com'
 }
 //basic 
-const file = fs.readFileSync(dataPath, 'utf8');
-console.log(file);
-const filenot = JSON.parse(file)
-console.log(filenot);
-filenot.push(siswa);
-fs.writeFileSync(dataPath, JSON.stringify(filenot));
+// const file = fs.readFileSync(dataPath, 'utf8');
+// console.log(file);
+// const filenot = JSON.parse(file)
+// console.log(filenot);
+// filenot.push(siswa);
+// fs.writeFileSync(dataPath, JSON.stringify(filenot));
+
+const loadContacts = () => {
+  const fileBuffer = fs.readFileSync(dataPath, 'utf8');
+  const contacts = JSON.parse(fileBuffer); 
+  return contacts;
+}
 
 
+const saveContacts = (data) => {
+    const contacts = loadContacts();
+    contacts.push(data);
+    fs.writeFileSync(dataPath, JSON.stringify(contacts), 'utf8');
+    // fs.close();   
+}
+
+
+
+
+
+module.exports = { loadContacts, saveContacts}
 
 
 // const loadContact = (contactss) =>{
